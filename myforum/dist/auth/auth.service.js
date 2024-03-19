@@ -38,9 +38,26 @@ let AuthService = class AuthService {
     }
     async login(user) {
         const payload = { username: user.username, sub: user._id };
+        const access_token = this.jwtService.sign(payload);
+        localStorage.setItem('access_token', access_token);
         return {
-            access_token: this.jwtService.sign(payload),
+            access_token,
         };
+    }
+    async logout() {
+        if (typeof localStorage !== 'undefined') {
+            localStorage.removeItem('access_token');
+        }
+        window.location.href = '/login';
+    }
+    isLoggedIn() {
+        if (typeof localStorage !== 'undefined') {
+            const access_token = localStorage.getItem('access_token');
+            if (access_token) {
+                return true;
+            }
+        }
+        return false;
     }
 };
 exports.AuthService = AuthService;

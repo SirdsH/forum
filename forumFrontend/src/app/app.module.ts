@@ -22,6 +22,7 @@ import {
   MatCardSubtitle,
   MatCardTitle
 } from "@angular/material/card";
+import {MatIcon} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -30,26 +31,27 @@ import {
     RegisterComponent,
     ForumComponent
   ],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    MatFormFieldModule,
-    CommonModule,
-    RouterOutlet,
-    RouterLink,
-    RouterLinkActive,
-    FormsModule,
-    MatButtonModule,
-    MatInputModule,
-    HttpClientModule,
-    MatCardActions,
-    MatCardContent,
-    MatCardSubtitle,
-    MatCardTitle,
-    MatCardHeader,
-    MatCard
-  ],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        AppRoutingModule,
+        MatFormFieldModule,
+        CommonModule,
+        RouterOutlet,
+        RouterLink,
+        RouterLinkActive,
+        FormsModule,
+        MatButtonModule,
+        MatInputModule,
+        HttpClientModule,
+        MatCardActions,
+        MatCardContent,
+        MatCardSubtitle,
+        MatCardTitle,
+        MatCardHeader,
+        MatCard,
+        MatIcon
+    ],
   providers: [
     provideAnimationsAsync()
   ],

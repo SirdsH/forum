@@ -17,9 +17,9 @@ export class HttpService {
     return this.http.post(`${this.url}auth/login`, credentials);
   }
 
-  register(username: string, password: string) {
-    const credentials = { username, password };
-    return this.http.post(`${this.url}users/register`, credentials);
+  register(email: string, username: string, password: string) {
+    const credentials = { email, username, password };
+    return this.http.post(`${this.url}auth/register`, credentials);
   }
 
   getPosts() {

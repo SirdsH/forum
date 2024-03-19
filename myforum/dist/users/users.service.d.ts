@@ -27,6 +27,8 @@ import { Model } from 'mongoose';
 export declare class UsersService {
     private userModel;
     constructor(userModel: Model<UserDocument>);
-    createUser(user: User): Promise<User>;
+    createUser(user: User): Promise<import("mongoose").Document<unknown, {}, UserDocument> & User & import("mongoose").Document<any, any, any> & {
+        _id: import("mongoose").Types.ObjectId;
+    }>;
     getUser(query: object): Promise<User>;
 }

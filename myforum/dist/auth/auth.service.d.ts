@@ -10,4 +10,6 @@ export declare class AuthService {
     login(user: any): Promise<{
         access_token: string;
     }>;
+    logout(): Promise<void>;
+    isLoggedIn(): boolean;
 }

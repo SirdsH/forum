@@ -7,4 +7,6 @@ export declare class AuthController {
     login(loginUserDto: LoginUserDto): Promise<{
         access_token: string;
     }>;
+    logout(): Promise<void>;
+    isLoggedIn(): Promise<boolean>;
 }

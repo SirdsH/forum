@@ -32,8 +32,39 @@ export class AuthService {
 
   async login(user: any) {
     const payload = { username: user.username, sub: user._id };
+    const access_token = this.jwtService.sign(payload);
+
+    // Store the access token in the localStorage object
+    localStorage.setItem('access_token', access_token);
+
     return {
-      access_token: this.jwtService.sign(payload),
+      access_token,
     };
+  }
+
+
+  async logout() {
+    // Check if the localStorage object is available
+    if (typeof localStorage !== 'undefined') {
+      // Clear the user's authentication token from the client-side storage
+      localStorage.removeItem('access_token');
+    }
+
+    // Redirect the user to the login page
+    window.location.href = '/login';
+  }
+
+  isLoggedIn(): boolean {
+    // Check if the localStorage object is available
+    if (typeof localStorage !== 'undefined') {
+      // Check if the user's authentication token is present in the client-side storage
+      const access_token = localStorage.getItem('access_token');
+      if (access_token) {
+        return true;
+      }
+    }
+
+    // If the user's authentication token is not present, the user is not logged in
+    return false;
   }
 }
