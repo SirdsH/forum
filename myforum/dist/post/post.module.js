@@ -12,6 +12,7 @@ const post_service_1 = require("./post.service");
 const post_controller_1 = require("./post.controller");
 const mongoose_1 = require("@nestjs/mongoose");
 const post_model_1 = require("./schema/post.model");
+const users_module_1 = require("../users/users.module");
 let PostModule = class PostModule {
 };
 exports.PostModule = PostModule;
@@ -20,13 +21,15 @@ exports.PostModule = PostModule = __decorate([
         imports: [
             mongoose_1.MongooseModule.forFeature([
                 {
-                    name: 'Post',
+                    name: 'Posts',
                     schema: post_model_1.PostSchema,
                 },
             ]),
+            users_module_1.UsersModule,
         ],
         controllers: [post_controller_1.PostController],
         providers: [post_service_1.PostService],
+        exports: [post_service_1.PostService],
     })
 ], PostModule);
 //# sourceMappingURL=post.module.js.map

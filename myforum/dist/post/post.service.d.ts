@@ -23,17 +23,17 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
 import { Model } from 'mongoose';
-import { Post, PostDocument } from './schema/post.model';
+import { Posts, PostDocument } from './schema/post.model';
 export declare class PostService {
     private postModel;
     constructor(postModel: Model<PostDocument>);
-    createPost(createPostDto: Post): Promise<import("mongoose").Document<unknown, {}, PostDocument> & Post & import("mongoose").Document<any, any, any> & {
+    createPost(post: Posts): Promise<import("mongoose").Document<unknown, {}, PostDocument> & Posts & import("mongoose").Document<any, any, any> & {
         _id: import("mongoose").Types.ObjectId;
     }>;
-    getPosts(): Promise<(import("mongoose").Document<unknown, {}, PostDocument> & Post & import("mongoose").Document<any, any, any> & {
+    getPosts(): Promise<(import("mongoose").Document<unknown, {}, PostDocument> & Posts & import("mongoose").Document<any, any, any> & {
         _id: import("mongoose").Types.ObjectId;
     })[]>;
-    getPostById(id: string): Promise<import("mongoose").Document<unknown, {}, PostDocument> & Post & import("mongoose").Document<any, any, any> & {
+    getPostById(id: string): Promise<import("mongoose").Document<unknown, {}, PostDocument> & Posts & import("mongoose").Document<any, any, any> & {
         _id: import("mongoose").Types.ObjectId;
     }>;
 }

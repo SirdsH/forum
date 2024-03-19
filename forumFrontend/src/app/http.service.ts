@@ -23,12 +23,12 @@ export class HttpService {
   }
 
   getPosts() {
-    this.lastRequest = this.http.get(`${this.url}post/getPosts`);
+    this.lastRequest = this.http.get(`${this.url}posts`);
     return this.lastRequest;
   }
 
   createPost(post: any) {
-    this.lastRequest = this.http.post(`${this.url}post/create`, post);
+    this.lastRequest = this.http.post(`${this.url}posts`, post);
     return this.lastRequest;
   }
 

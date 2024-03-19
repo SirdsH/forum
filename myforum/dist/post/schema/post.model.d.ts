@@ -24,15 +24,18 @@
 /// <reference types="mongoose/types/inferschematype" />
 import { Document } from 'mongoose';
 import { User } from '../../users/schema/users.model';
-export type PostDocument = Post & Document;
-export declare class Post {
+import * as mongoose from 'mongoose';
+export type PostDocument = Posts & Document;
+export declare class Posts {
     title: string;
     content: string;
-    author: User;
+    author: mongoose.Types.ObjectId;
     createdAt: Date;
+    likes: User[];
+    comments: User[];
 }
-export declare const PostSchema: import("mongoose").Schema<Post, import("mongoose").Model<Post, any, any, any, Document<unknown, any, Post> & Post & {
-    _id: import("mongoose").Types.ObjectId;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Post, Document<unknown, {}, import("mongoose").FlatRecord<Post>> & import("mongoose").FlatRecord<Post> & {
-    _id: import("mongoose").Types.ObjectId;
+export declare const PostSchema: mongoose.Schema<Posts, mongoose.Model<Posts, any, any, any, Document<unknown, any, Posts> & Posts & {
+    _id: mongoose.Types.ObjectId;
+}, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, Posts, Document<unknown, {}, mongoose.FlatRecord<Posts>> & mongoose.FlatRecord<Posts> & {
+    _id: mongoose.Types.ObjectId;
 }>;

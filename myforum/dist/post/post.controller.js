@@ -15,44 +15,44 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PostController = void 0;
 const common_1 = require("@nestjs/common");
 const post_service_1 = require("./post.service");
-const create_post_dto_1 = require("./dto/create-post.dto");
+const post_model_1 = require("./schema/post.model");
 let PostController = class PostController {
     constructor(postService) {
         this.postService = postService;
     }
-    createPost(createPostDto) {
-        return this.postService.createPost(createPostDto);
+    async createPost(post) {
+        return this.postService.createPost(post);
     }
-    getPosts() {
+    async getPosts() {
         return this.postService.getPosts();
     }
-    getPostById(body) {
-        return this.postService.getPostById(body);
+    async getPostById(id) {
+        return this.postService.getPostById(id);
     }
 };
 exports.PostController = PostController;
 __decorate([
-    (0, common_1.Post)('create'),
+    (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_post_dto_1.CreatePostDto]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:paramtypes", [post_model_1.Posts]),
+    __metadata("design:returntype", Promise)
 ], PostController.prototype, "createPost", null);
 __decorate([
-    (0, common_1.Get)('getPosts'),
+    (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], PostController.prototype, "getPosts", null);
 __decorate([
-    (0, common_1.Get)('getPostById'),
-    __param(0, (0, common_1.Body)()),
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], PostController.prototype, "getPostById", null);
 exports.PostController = PostController = __decorate([
-    (0, common_1.Controller)('post'),
+    (0, common_1.Controller)('posts'),
     __metadata("design:paramtypes", [post_service_1.PostService])
 ], PostController);
 //# sourceMappingURL=post.controller.js.map

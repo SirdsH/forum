@@ -23,11 +23,10 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
 import { User, UserDocument } from './schema/users.model';
-import { CreateUserDto } from './dto/create-user.dto';
 import { Model } from 'mongoose';
 export declare class UsersService {
     private userModel;
     constructor(userModel: Model<UserDocument>);
-    create(createUserDto: CreateUserDto): Promise<User>;
+    createUser(user: User): Promise<User>;
     getUser(query: object): Promise<User>;
 }
