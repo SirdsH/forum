@@ -1,0 +1,16 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: darkgreen;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.example-card {
+  max-width: 850px;
+  margin: 20px auto; 
+}
+

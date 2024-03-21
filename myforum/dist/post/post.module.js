@@ -13,6 +13,7 @@ const post_controller_1 = require("./post.controller");
 const mongoose_1 = require("@nestjs/mongoose");
 const post_model_1 = require("./schema/post.model");
 const users_module_1 = require("../users/users.module");
+const jwt_1 = require("@nestjs/jwt");
 let PostModule = class PostModule {
 };
 exports.PostModule = PostModule;
@@ -25,10 +26,10 @@ exports.PostModule = PostModule = __decorate([
                     schema: post_model_1.PostSchema,
                 },
             ]),
-            users_module_1.UsersModule,
+            (0, common_1.forwardRef)(() => users_module_1.UsersModule),
         ],
         controllers: [post_controller_1.PostController],
-        providers: [post_service_1.PostService],
+        providers: [post_service_1.PostService, jwt_1.JwtService],
         exports: [post_service_1.PostService],
     })
 ], PostModule);

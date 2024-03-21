@@ -22,20 +22,17 @@
 /// <reference types="mongoose/types/validation" />
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
-import { Document } from 'mongoose';
-import { User } from '../../users/schema/users.model';
-import * as mongoose from 'mongoose';
+import { Document, Schema as MongooseSchema } from 'mongoose';
+import { Types } from 'mongoose';
 export type PostDocument = Posts & Document;
 export declare class Posts {
+    userId: Types.ObjectId;
     title: string;
     content: string;
-    author: mongoose.Types.ObjectId;
     createdAt: Date;
-    likes: User[];
-    comments: User[];
 }
-export declare const PostSchema: mongoose.Schema<Posts, mongoose.Model<Posts, any, any, any, Document<unknown, any, Posts> & Posts & {
-    _id: mongoose.Types.ObjectId;
-}, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, Posts, Document<unknown, {}, mongoose.FlatRecord<Posts>> & mongoose.FlatRecord<Posts> & {
-    _id: mongoose.Types.ObjectId;
+export declare const PostSchema: MongooseSchema<Posts, import("mongoose").Model<Posts, any, any, any, Document<unknown, any, Posts> & Posts & {
+    _id: Types.ObjectId;
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Posts, Document<unknown, {}, import("mongoose").FlatRecord<Posts>> & import("mongoose").FlatRecord<Posts> & {
+    _id: Types.ObjectId;
 }>;

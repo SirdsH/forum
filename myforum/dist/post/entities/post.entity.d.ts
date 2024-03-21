@@ -23,15 +23,11 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
 import { Document } from 'mongoose';
-import { User } from '../../users/schema/users.model';
 export type PostDocument = Post & Document;
 export declare class Post {
     title: string;
     content: string;
-    author: User;
     createdAt: Date;
-    likes: User[];
-    comments: Comment[];
 }
 export declare const PostSchema: import("mongoose").Schema<Post, import("mongoose").Model<Post, any, any, any, Document<unknown, any, Post> & Post & {
     _id: import("mongoose").Types.ObjectId;

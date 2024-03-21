@@ -1,14 +1,20 @@
 <div class="container">
-  <h1>Login</h1>
-  <form (ngSubmit)="onSubmit()">
-    <mat-form-field appearance="fill">
-      <mat-label>Username</mat-label>
-      <input matInput [(ngModel)]="username" name="username" required>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Password</mat-label>
-      <input matInput [(ngModel)]="password" name="password" type="password" required>
-    </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">Login</button>
-  </form>
+  <div class="login-form">
+    <h1>Přihlášení</h1>
+    <form (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Jméno</mat-label>
+        <input matInput [(ngModel)]="username" name="username" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Heslo</mat-label>
+        <input matInput [(ngModel)]="password" name="password" type="password" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" class="login-button">Přihlásit</button>
+    </form>
+    <div class="register-link">
+      <p>Nemáte ještě účet?</p>
+      <button mat-raised-button color="primary" routerLink="/register" class="register-button">Zaregistrovat se</button>
+    </div>
+  </div>
 </div>

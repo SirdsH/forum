@@ -6,7 +6,12 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Get('getUser')
-  getUser(@Body() query: object) {
-    return this.usersService.getUser(query);
+  async getUser(@Body() body: any) {
+    return this.usersService.getUser(body);
+  }
+
+  @Get('getAllUsers')
+  async getAllUsers() {
+    return this.usersService.getAllUsers();
   }
 }

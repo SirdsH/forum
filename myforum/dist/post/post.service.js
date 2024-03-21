@@ -16,26 +16,64 @@ exports.PostService = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
-const post_model_1 = require("./schema/post.model");
+const mongoose_3 = require("mongoose");
+const jwt_1 = require("@nestjs/jwt");
+const users_service_1 = require("../users/users.service");
 let PostService = class PostService {
-    constructor(postModel) {
+    constructor(postModel, jwtService, usersService) {
         this.postModel = postModel;
+        this.jwtService = jwtService;
+        this.usersService = usersService;
     }
-    async createPost(post) {
-        const newPost = new this.postModel(post);
-        return newPost.save();
+    async createPost(createPostDto, token) {
+        try {
+            const decoded = await this.jwtService.verifyAsync(token);
+            if (!decoded) {
+                throw new common_1.UnauthorizedException('Invalid token');
+            }
+            const user = await this.usersService.getUser({ _id: decoded.sub });
+            if (!user) {
+                throw new common_1.UnauthorizedException('User not found');
+            }
+            const newPost = new this.postModel({
+                ...createPostDto,
+                author: user._id,
+            });
+            return newPost.save();
+        }
+        catch (error) {
+            throw new common_1.UnauthorizedException('Invalid token');
+        }
     }
     async getPosts() {
-        return this.postModel.find().exec();
+        return await this.postModel.find().exec();
     }
-    async getPostById(id) {
-        return this.postModel.findById(id).exec();
+    async findOne(id) {
+        return this.postModel.findOne({ _id: new mongoose_3.Types.ObjectId(id) }).exec();
+    }
+    async remove(id) {
+        if (!id) {
+            throw new common_1.BadRequestException('Invalid id');
+        }
+        const postId = new mongoose_3.Types.ObjectId(id);
+        return this.postModel.findOneAndDelete({ _id: postId }).exec();
+    }
+    async updatePost(post) {
+        if (!post._id) {
+            throw new common_1.BadRequestException('Invalid id');
+        }
+        const postId = new mongoose_3.Types.ObjectId(post._id);
+        return this.postModel
+            .findOneAndUpdate({ _id: postId }, post, { new: true })
+            .exec();
     }
 };
 exports.PostService = PostService;
 exports.PostService = PostService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, mongoose_1.InjectModel)(post_model_1.Posts.name)),
-    __metadata("design:paramtypes", [mongoose_2.Model])
+    __param(0, (0, mongoose_1.InjectModel)('Posts')),
+    __metadata("design:paramtypes", [mongoose_2.Model,
+        jwt_1.JwtService,
+        users_service_1.UsersService])
 ], PostService);
 //# sourceMappingURL=post.service.js.map

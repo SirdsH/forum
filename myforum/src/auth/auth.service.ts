@@ -31,23 +31,35 @@ export class AuthService {
   }
 
   async login(user: any) {
-    const payload = { username: user.username, sub: user._id };
-    const access_token = this.jwtService.sign(payload);
+    try {
+      // Validate user credentials against the database
+      const dbUser = await this.validateUser(user.username, user.password);
+      if (!dbUser) {
+        // If the credentials are invalid, return an error message
+        throw new Error('Invalid credentials');
+      }
 
-    // Store the access token in the localStorage object
-    localStorage.setItem('access_token', access_token);
+      // If the credentials are valid, create a JWT payload
+      const payload = { username: user.username, sub: dbUser._id };
+      console.log('payload', payload);
+      const access_token = this.jwtService.sign(payload);
 
-    return {
-      access_token,
-    };
+      // Return the JWT to the user
+      return { ...dbUser, access_token };
+    } catch (error) {
+      // Handle any errors that occur
+      console.error(error);
+      throw new Error(
+        'An error occurred while logging in. Please try again later.',
+      );
+    }
   }
-
 
   async logout() {
     // Check if the localStorage object is available
-    if (typeof localStorage !== 'undefined') {
+    if (typeof sessionStorage !== 'undefined') {
       // Clear the user's authentication token from the client-side storage
-      localStorage.removeItem('access_token');
+      sessionStorage.removeItem('access_token');
     }
 
     // Redirect the user to the login page
@@ -56,9 +68,9 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     // Check if the localStorage object is available
-    if (typeof localStorage !== 'undefined') {
+    if (typeof sessionStorage !== 'undefined') {
       // Check if the user's authentication token is present in the client-side storage
-      const access_token = localStorage.getItem('access_token');
+      const access_token = sessionStorage.getItem('access_token');
       if (access_token) {
         return true;
       }

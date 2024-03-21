@@ -16,7 +16,11 @@ export class UsersService {
     return newUser.save();
   }
 
-  async getUser(query: object): Promise<User> {
-    return this.userModel.findOne(query).exec();
+  async getUser(body: any) {
+    return this.userModel.findOne({ username: body.username }).exec();
+  }
+
+  async getAllUsers() {
+    return this.userModel.find().exec();
   }
 }

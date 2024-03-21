@@ -1,3 +1,11 @@
-import { Post } from '../entities/post.entity';
+import { IsNotEmpty, IsString } from 'class-validator';
 
-export class CreatePostDto extends Post {}
+export class CreatePostDto {
+  @IsNotEmpty()
+  @IsString()
+  title: string;
+
+  @IsNotEmpty()
+  @IsString()
+  content: string;
+}

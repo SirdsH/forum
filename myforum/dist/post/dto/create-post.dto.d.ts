@@ -1,3 +1,4 @@
-import { Post } from '../entities/post.entity';
-export declare class CreatePostDto extends Post {
+export declare class CreatePostDto {
+    title: string;
+    content: string;
 }

@@ -29,8 +29,11 @@ let UsersService = class UsersService {
         });
         return newUser.save();
     }
-    async getUser(query) {
-        return this.userModel.findOne(query).exec();
+    async getUser(body) {
+        return this.userModel.findOne({ username: body.username }).exec();
+    }
+    async getAllUsers() {
+        return this.userModel.find().exec();
     }
 };
 exports.UsersService = UsersService;

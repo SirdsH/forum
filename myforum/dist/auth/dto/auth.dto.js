@@ -38,7 +38,7 @@ __decorate([
 ], LoginUserDto.prototype, "username", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
-    (0, class_validator_1.MinLength)(8),
+    (0, class_validator_1.MinLength)(6),
     __metadata("design:type", String)
 ], LoginUserDto.prototype, "password", void 0);
 //# sourceMappingURL=auth.dto.js.map

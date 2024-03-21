@@ -19,8 +19,11 @@ let UsersController = class UsersController {
     constructor(usersService) {
         this.usersService = usersService;
     }
-    getUser(query) {
-        return this.usersService.getUser(query);
+    async getUser(body) {
+        return this.usersService.getUser(body);
+    }
+    async getAllUsers() {
+        return this.usersService.getAllUsers();
     }
 };
 exports.UsersController = UsersController;
@@ -29,8 +32,14 @@ __decorate([
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UsersController.prototype, "getUser", null);
+__decorate([
+    (0, common_1.Get)('getAllUsers'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "getAllUsers", null);
 exports.UsersController = UsersController = __decorate([
     (0, common_1.Controller)('users'),
     __metadata("design:paramtypes", [users_service_1.UsersService])

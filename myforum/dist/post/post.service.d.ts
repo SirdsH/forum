@@ -23,17 +23,23 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
 import { Model } from 'mongoose';
-import { Posts, PostDocument } from './schema/post.model';
+import { PostDocument } from './schema/post.model';
+import { CreatePostDto } from './dto/create-post.dto';
+import { Types } from 'mongoose';
+import { JwtService } from '@nestjs/jwt';
+import { UsersService } from '../users/users.service';
 export declare class PostService {
     private postModel;
-    constructor(postModel: Model<PostDocument>);
-    createPost(post: Posts): Promise<import("mongoose").Document<unknown, {}, PostDocument> & Posts & import("mongoose").Document<any, any, any> & {
-        _id: import("mongoose").Types.ObjectId;
+    private jwtService;
+    private usersService;
+    constructor(postModel: Model<PostDocument>, jwtService: JwtService, usersService: UsersService);
+    createPost(createPostDto: CreatePostDto, token: string): Promise<import("mongoose").Document<unknown, {}, PostDocument> & import("./schema/post.model").Posts & import("mongoose").Document<any, any, any> & {
+        _id: Types.ObjectId;
     }>;
-    getPosts(): Promise<(import("mongoose").Document<unknown, {}, PostDocument> & Posts & import("mongoose").Document<any, any, any> & {
-        _id: import("mongoose").Types.ObjectId;
+    getPosts(): Promise<(import("mongoose").Document<unknown, {}, PostDocument> & import("./schema/post.model").Posts & import("mongoose").Document<any, any, any> & {
+        _id: Types.ObjectId;
     })[]>;
-    getPostById(id: string): Promise<import("mongoose").Document<unknown, {}, PostDocument> & Posts & import("mongoose").Document<any, any, any> & {
-        _id: import("mongoose").Types.ObjectId;
-    }>;
+    findOne(id: string): Promise<PostDocument>;
+    remove(id: string): Promise<PostDocument>;
+    updatePost(post: any): Promise<PostDocument>;
 }

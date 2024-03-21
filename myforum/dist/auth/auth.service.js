@@ -37,22 +37,30 @@ let AuthService = class AuthService {
         return null;
     }
     async login(user) {
-        const payload = { username: user.username, sub: user._id };
-        const access_token = this.jwtService.sign(payload);
-        localStorage.setItem('access_token', access_token);
-        return {
-            access_token,
-        };
+        try {
+            const dbUser = await this.validateUser(user.username, user.password);
+            if (!dbUser) {
+                throw new Error('Invalid credentials');
+            }
+            const payload = { username: user.username, sub: dbUser._id };
+            console.log('payload', payload);
+            const access_token = this.jwtService.sign(payload);
+            return { ...dbUser, access_token };
+        }
+        catch (error) {
+            console.error(error);
+            throw new Error('An error occurred while logging in. Please try again later.');
+        }
     }
     async logout() {
-        if (typeof localStorage !== 'undefined') {
-            localStorage.removeItem('access_token');
+        if (typeof sessionStorage !== 'undefined') {
+            sessionStorage.removeItem('access_token');
         }
         window.location.href = '/login';
     }
     isLoggedIn() {
-        if (typeof localStorage !== 'undefined') {
-            const access_token = localStorage.getItem('access_token');
+        if (typeof sessionStorage !== 'undefined') {
+            const access_token = sessionStorage.getItem('access_token');
             if (access_token) {
                 return true;
             }
