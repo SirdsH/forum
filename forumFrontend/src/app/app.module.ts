@@ -23,7 +23,6 @@ import {
 } from "@angular/material/card";
 import {MatIcon} from "@angular/material/icon";
 import { PostComponent } from './post/post.component';
-import { CreatePostComponent } from './create-post/create-post.component';
 import { HomeComponent } from './home/home.component';
 import {MatToolbar} from "@angular/material/toolbar";
 import {
@@ -39,7 +38,6 @@ import 'bootstrap';
     LoginComponent,
     RegisterComponent,
     PostComponent,
-    CreatePostComponent,
     HomeComponent,
   ],
   imports: [

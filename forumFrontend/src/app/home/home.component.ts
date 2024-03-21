@@ -12,24 +12,11 @@ export class HomeComponent {
   constructor(private router: Router, private httpService: HttpService) {
   }
 
-  ngOnInit() {
-    this.getPosts();
-  }
 
-  getPosts() {
-    this.httpService.getPosts().subscribe((res: any) => {
-      this.posts = res;
-    }, (err) => {
-      console.log(err);
-    });
-  }
 
   logout() {
     sessionStorage.removeItem('access_token');
     this.router.navigate(['/login']);
   }
 
-  createPost() {
-    this.router.navigate(['createPost']);
-  }
 }
