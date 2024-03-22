@@ -3,13 +3,13 @@
   <span class="spacer"></span>
   <div class="nav-right">
     <button mat-button class="btn-log" (click)="home()">
-      Home
+      Domů
     </button>
     <button mat-button class="btn-log" (click)="profile()">
-      Profile
+      Profil
     </button>
     <button mat-button class="btn-log" (click)="logout()">
-      Logout
+      Odhlásit se
     </button>
   </div>
 </mat-toolbar>
@@ -23,8 +23,7 @@
           <small>By {{ post.author?.username }}</small>
           <small class="float-right ms-1">{{ post.createdAt | date: 'medium' }}</small>
           <div class="float-right">
-            <button class="btn btn-primary btn-sm mr-2" (click)="updatePost(post._id)">Update</button>
-            <button *ngIf="(post.author._id === doc._id) || (doc.role === 'admin')" class="btn btn-danger btn-sm" (click)="deletePost(post._id)">Delete</button>
+            <button *ngIf="(post.author._id === doc._id) || (doc.role === 'admin')" class="btn btn-danger btn-sm" (click)="deletePost(post._id)">Smazat</button>
           </div>
         </div>
         <div class="card-body">
@@ -32,8 +31,8 @@
         </div>
         <div class="card-footer">
           <mat-form-field>
-            <textarea matInput placeholder="Create a comment" [(ngModel)]="content"></textarea>
-            <button mat-raised-button color="primary" (click)="createComment(content)">Create Comment</button>
+            <textarea matInput placeholder="Vytvořit komentář" [(ngModel)]="content"></textarea>
+            <button mat-raised-button color="primary" style="background-color: #608054!important;" (click)="createComment(content)">Vytvořit komentář</button>
           </mat-form-field>
           <ul class="list-unstyled">
             <li *ngFor="let comment of comments">
@@ -42,7 +41,7 @@
                   <h5 class="mt-0 mb-1">{{ comment.author?.username }}</h5>
                   {{ comment.content }}
                   <div class="float-right">
-                    <button *ngIf="(comment.author._id === doc._id) || (doc.role === 'admin')" class="btn btn-danger btn-sm" (click)="deleteComment(comment._id)">Delete</button>
+                    <button *ngIf="(comment.author._id === doc._id) || (doc.role === 'admin')" class="btn btn-danger btn-sm" (click)="deleteComment(comment._id)">Smazat</button>
                   </div>
                 </div>
               </div>

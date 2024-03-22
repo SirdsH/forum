@@ -39,7 +39,7 @@
     <div class="post" *ngFor="let post of filterPosts()">
       <div class="card">
         <h1 (click)="moveToPost(post._id)" style="cursor: pointer;">{{ post.title }}</h1>
-        <small>By  {{ post.author?.username }}, {{ post.createdAt | date: 'medium' }}</small>
+        <small>Od  {{ post.author?.username }}, {{ post.createdAt | date:'medium':'cs' }}</small>
       </div>
     </div>
   </div>

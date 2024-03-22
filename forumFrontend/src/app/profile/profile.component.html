@@ -3,10 +3,10 @@
   <span class="spacer"></span>
   <div class="nav-right">
     <button mat-button class="btn-log" (click)="home()">
-      Home
+      Domů
     </button>
     <button mat-button class="btn-log" (click)="logout()">
-      Logout
+      Odhlásit se
     </button>
   </div>
 </mat-toolbar>
@@ -16,14 +16,14 @@
     <div class="card-header">
       <div class="row">
         <div class="col-md-8">
-          <h2>Welcome {{ doc.username }}</h2>
+          <h2>Vítej {{ doc.username }}</h2>
         </div>
       </div>
     </div>
     <div class="card-body">
-      <h5>Your email is {{ doc.email }}</h5>
+      <h5>Tvůj email je {{ doc.email }}</h5>
       <hr />
-      <h3>Your posts</h3>
+      <h3>Tvoje příspěvky</h3>
       <ul class="list-unstyled">
         <li *ngFor="let post of posts">
             <div class="row">

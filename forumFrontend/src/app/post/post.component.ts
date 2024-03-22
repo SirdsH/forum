@@ -56,11 +56,6 @@ export class PostComponent implements OnInit{
     });
   }
 
-
-  updatePost(id: string) {
-    this.router.navigate(['/update-post', id]);
-  }
-
   // This is the function that creates a comment on a post without navigating to a new page and refreshes the page.
   createComment(content: string) {
     this.httpService.createComment(this.postId, this.content = content, this.doc._id).subscribe(() => {

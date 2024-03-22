@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   posts: any;
   search: string = '';
 
+
   constructor(private router: Router, private httpService: HttpService) { }
 
   ngOnInit() {
@@ -44,12 +45,17 @@ export class HomeComponent implements OnInit {
   }
 
   filterPosts() {
-    return this.posts.filter((post: Post) => {
-      if (!post) {
-        return false;
-      }
-      return post.title.toLowerCase().includes(this.search.toLowerCase()) || post.content.toLowerCase().includes(this.search.toLowerCase());
-    });
+    return this.posts
+      .filter((post: Post) => {
+        if (!post) {
+          return false;
+        }
+        return post.title.toLowerCase().includes(this.search.toLowerCase()) || post.content.toLowerCase().includes(this.search.toLowerCase());
+      })
+      .sort((a: any, b: any) => {
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+      })
+      .slice(0, 10);
   }
 
   moveToPost(id: number) {
