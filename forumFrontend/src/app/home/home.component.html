@@ -10,10 +10,25 @@
     </button>
   </div>
 </mat-toolbar>
+<div class="d-flex align-content-center justify-content-center">
+  <div class="textMyslivost ">
+    <h1>Myslivost</h1>
+    <p>
+      Myslivost je nejčastěji chápána jako zájmová, hospodářská a kulturní činnost mající v našich zemích velmi silnou
+      tradici. Přestože její hlavní význam dnes tkví v krajinotvorné, ekologické, společensko-kulturní a rekreační
+      funkci, nalezneme v jejích výstupech také velmi významný ekonomický efekt. Definovat stručně myslivost a
+      postihnout zároveň celou její podstatu tak není vůbec snadné. Pravděpodobně nejširší pohled v sobě skrývá
+      odpovídající pasáž Zákona o myslivosti, který pod tímto pojmem rozumí: "Soubor činností prováděných v přírodě ve
+      vztahu k volně žijící zvěři jako součásti ekosystému a spolková činnost směřující k udržení a rozvíjení
+      mysliveckých tradic a zvyků jako součásti českého národního kulturního dědictví."
+    </p>
+  </div>
+</div>
 
 <div class="container">
   <div class="search-container">
-    <input class="searcher" type="text" [(ngModel)]="search" (ngModelChange)="filterPosts()" placeholder="Search for posts...">
+    <input class="searcher" type="text" [(ngModel)]="search" (ngModelChange)="filterPosts()"
+           placeholder="Hledej příspěvky...">
   </div>
 
   <button class="btncreate" mat-raised-button (click)="createPost()">

@@ -19,9 +19,6 @@ export class HttpService {
     return this.http.post(`${this.url}auth/register`, credentials);
   }
 
-
-
-
   isLoggedIn() {
     return this.http.get(`${this.url}auth/isLoggedIn`);
   }

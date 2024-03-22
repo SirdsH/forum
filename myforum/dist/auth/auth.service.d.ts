@@ -25,8 +25,7 @@
 /// <reference types="mongoose/types/inferschematype" />
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
-import { User } from '../users/schema/users.model';
-import { CreateUserDto } from "./dto/auth.dto";
+import { CreateUserDto } from './dto/auth.dto';
 export declare class AuthService {
     private readonly usersService;
     private readonly jwtService;
@@ -40,7 +39,7 @@ export declare class AuthService {
             <ModelType = import("mongoose").Model<unknown, {}, {}, {}, import("mongoose").Document<unknown, {}, unknown> & Required<{
                 _id: unknown;
             }>, any>>(name: string): ModelType;
-            <ModelType_1 = import("mongoose").Model<import("../users/schema/users.model").UserDocument, {}, {}, {}, import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            <ModelType_1 = import("mongoose").Model<import("src/users/schema/users.model").UserDocument, {}, {}, {}, import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             }, any>>(): ModelType_1;
         } & {
@@ -54,13 +53,13 @@ export declare class AuthService {
         baseModelName?: string;
         collection: import("mongoose").Collection<import("bson").Document>;
         db: import("mongoose").Connection;
-        deleteOne: ((options?: import("mongoose").QueryOptions<unknown>) => import("mongoose").Query<import("mongodb").DeleteResult, import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+        deleteOne: ((options?: import("mongoose").QueryOptions<unknown>) => import("mongoose").Query<import("mongodb").DeleteResult, import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
             _id: import("mongoose").Types.ObjectId;
-        }, {}, import("../users/schema/users.model").UserDocument, "deleteOne">) & ((options?: import("mongoose").QueryOptions<unknown>) => any);
+        }, {}, import("src/users/schema/users.model").UserDocument, "deleteOne">) & ((options?: import("mongoose").QueryOptions<unknown>) => any);
         equals: ((doc: import("mongoose").Document<unknown, any, any>) => boolean) & ((doc: import("mongoose").Document<any, any, any>) => boolean);
         errors?: import("mongoose").Error.ValidationError;
         get: {
-            <T extends keyof User | keyof import("mongoose").Document<any, any, any>>(path: T, type?: any, options?: any): import("../users/schema/users.model").UserDocument[T];
+            <T extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path: T, type?: any, options?: any): import("src/users/schema/users.model").UserDocument[T];
             (path: string, type?: any, options?: any): any;
         } & {
             <T_1 extends string | number | symbol>(path: T_1, type?: any, options?: any): any;
@@ -68,35 +67,35 @@ export declare class AuthService {
         };
         id?: any;
         invalidate: {
-            <T_2 extends keyof User | keyof import("mongoose").Document<any, any, any>>(path: T_2, errorMsg: string | NativeError, value?: any, kind?: string): NativeError;
+            <T_2 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path: T_2, errorMsg: string | NativeError, value?: any, kind?: string): NativeError;
             (path: string, errorMsg: string | NativeError, value?: any, kind?: string): NativeError;
         } & {
             <T_3 extends string | number | symbol>(path: T_3, errorMsg: string | NativeError, value?: any, kind?: string): NativeError;
             (path: string, errorMsg: string | NativeError, value?: any, kind?: string): NativeError;
         };
         isDirectModified: {
-            <T_4 extends keyof User | keyof import("mongoose").Document<any, any, any>>(path: T_4 | T_4[]): boolean;
+            <T_4 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path: T_4 | T_4[]): boolean;
             (path: string | string[]): boolean;
         } & {
             <T_5 extends string | number | symbol>(path: T_5 | T_5[]): boolean;
             (path: string | string[]): boolean;
         };
         isDirectSelected: {
-            <T_6 extends keyof User | keyof import("mongoose").Document<any, any, any>>(path: T_6): boolean;
+            <T_6 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path: T_6): boolean;
             (path: string): boolean;
         } & {
             <T_7 extends string | number | symbol>(path: T_7): boolean;
             (path: string): boolean;
         };
         isInit: {
-            <T_8 extends keyof User | keyof import("mongoose").Document<any, any, any>>(path: T_8): boolean;
+            <T_8 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path: T_8): boolean;
             (path: string): boolean;
         } & {
             <T_9 extends string | number | symbol>(path: T_9): boolean;
             (path: string): boolean;
         };
         isModified: {
-            <T_10 extends keyof User | keyof import("mongoose").Document<any, any, any>>(path?: T_10 | T_10[], options?: {
+            <T_10 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path?: T_10 | T_10[], options?: {
                 ignoreAtomics?: boolean;
             }): boolean;
             (path?: string | string[], options?: {
@@ -112,14 +111,14 @@ export declare class AuthService {
         };
         isNew: boolean;
         isSelected: {
-            <T_12 extends keyof User | keyof import("mongoose").Document<any, any, any>>(path: T_12): boolean;
+            <T_12 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path: T_12): boolean;
             (path: string): boolean;
         } & {
             <T_13 extends string | number | symbol>(path: T_13): boolean;
             (path: string): boolean;
         };
         markModified: {
-            <T_14 extends keyof User | keyof import("mongoose").Document<any, any, any>>(path: T_14, scope?: any): void;
+            <T_14 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path: T_14, scope?: any): void;
             (path: string, scope?: any): void;
         } & {
             <T_15 extends string | number | symbol>(path: T_15, scope?: any): void;
@@ -129,7 +128,7 @@ export declare class AuthService {
             <ModelType_4 = import("mongoose").Model<unknown, {}, {}, {}, import("mongoose").Document<unknown, {}, unknown> & Required<{
                 _id: unknown;
             }>, any>>(name: string): ModelType_4;
-            <ModelType_5 = import("mongoose").Model<import("../users/schema/users.model").UserDocument, {}, {}, {}, import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            <ModelType_5 = import("mongoose").Model<import("src/users/schema/users.model").UserDocument, {}, {}, {}, import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             }, any>>(): ModelType_5;
         } & {
@@ -148,41 +147,41 @@ export declare class AuthService {
             _id: unknown;
         }>>;
         set: {
-            <T_16 extends keyof User | keyof import("mongoose").Document<any, any, any>>(path: T_16, val: import("../users/schema/users.model").UserDocument[T_16], type: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            <T_16 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path: T_16, val: import("src/users/schema/users.model").UserDocument[T_16], type: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             };
-            (path: string | Record<string, any>, val: any, type: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            (path: string | Record<string, any>, val: any, type: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             };
-            (path: string | Record<string, any>, val: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            (path: string | Record<string, any>, val: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             };
-            (value: string | Record<string, any>): import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            (value: string | Record<string, any>): import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             };
         } & {
-            <T_17 extends string | number | symbol>(path: T_17, val: any, type: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            <T_17 extends string | number | symbol>(path: T_17, val: any, type: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             };
-            (path: string | Record<string, any>, val: any, type: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            (path: string | Record<string, any>, val: any, type: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             };
-            (path: string | Record<string, any>, val: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            (path: string | Record<string, any>, val: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             };
-            (value: string | Record<string, any>): import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            (value: string | Record<string, any>): import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             };
         };
         toJSON: {
-            <T_18 = User & import("mongoose").Document<any, any, any> & {
+            <T_18 = import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             }>(options?: import("mongoose").ToObjectOptions<import("mongoose").Document<unknown, {}, unknown> & Required<{
                 _id: unknown;
             }>> & {
                 flattenMaps?: true;
             }): import("mongoose").FlattenMaps<T_18>;
-            <T_19 = User & import("mongoose").Document<any, any, any> & {
+            <T_19 = import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             }>(options: import("mongoose").ToObjectOptions<import("mongoose").Document<unknown, {}, unknown> & Required<{
                 _id: unknown;
@@ -201,7 +200,7 @@ export declare class AuthService {
                 flattenMaps: false;
             }): T_21;
         };
-        toObject: (<T_22 = User & import("mongoose").Document<any, any, any> & {
+        toObject: (<T_22 = import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
             _id: import("mongoose").Types.ObjectId;
         }>(options?: import("mongoose").ToObjectOptions<import("mongoose").Document<unknown, {}, unknown> & Required<{
             _id: unknown;
@@ -209,14 +208,14 @@ export declare class AuthService {
             _id: unknown;
         }>>) => import("mongoose").Require_id<T_23>);
         unmarkModified: {
-            <T_24 extends keyof User | keyof import("mongoose").Document<any, any, any>>(path: T_24): void;
+            <T_24 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path: T_24): void;
             (path: string): void;
         } & {
             <T_25 extends string | number | symbol>(path: T_25): void;
             (path: string): void;
         };
         validate: {
-            <T_26 extends keyof User | keyof import("mongoose").Document<any, any, any>>(pathsToValidate?: T_26 | T_26[], options?: import("mongoose").AnyObject): Promise<void>;
+            <T_26 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(pathsToValidate?: T_26 | T_26[], options?: import("mongoose").AnyObject): Promise<void>;
             (pathsToValidate?: import("mongoose").PathsToValidate, options?: import("mongoose").AnyObject): Promise<void>;
             (options: {
                 pathsToSkip?: import("mongoose").pathsToSkip;
@@ -233,7 +232,7 @@ export declare class AuthService {
                 [k: string]: any;
                 pathsToSkip?: import("mongoose").pathsToSkip;
             }): import("mongoose").Error.ValidationError;
-            <T_28 extends keyof User | keyof import("mongoose").Document<any, any, any>>(pathsToValidate?: T_28 | T_28[], options?: import("mongoose").AnyObject): import("mongoose").Error.ValidationError;
+            <T_28 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(pathsToValidate?: T_28 | T_28[], options?: import("mongoose").AnyObject): import("mongoose").Error.ValidationError;
             (pathsToValidate?: import("mongoose").PathsToValidate, options?: import("mongoose").AnyObject): import("mongoose").Error.ValidationError;
         } & {
             (options: {
@@ -248,7 +247,7 @@ export declare class AuthService {
         password: string;
         role: string;
     }>;
-    validateUser(username: string, password: string): Promise<import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+    validateUser(username: string, password: string): Promise<import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
         _id: import("mongoose").Types.ObjectId;
     }>;
     login(user: any): Promise<{
@@ -260,7 +259,7 @@ export declare class AuthService {
             <ModelType = import("mongoose").Model<unknown, {}, {}, {}, import("mongoose").Document<unknown, {}, unknown> & Required<{
                 _id: unknown;
             }>, any>>(name: string): ModelType;
-            <ModelType_1 = import("mongoose").Model<import("../users/schema/users.model").UserDocument, {}, {}, {}, import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            <ModelType_1 = import("mongoose").Model<import("src/users/schema/users.model").UserDocument, {}, {}, {}, import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             }, any>>(): ModelType_1;
         } & {
@@ -274,13 +273,13 @@ export declare class AuthService {
         baseModelName?: string;
         collection: import("mongoose").Collection<import("bson").Document>;
         db: import("mongoose").Connection;
-        deleteOne: ((options?: import("mongoose").QueryOptions<unknown>) => import("mongoose").Query<import("mongodb").DeleteResult, import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+        deleteOne: ((options?: import("mongoose").QueryOptions<unknown>) => import("mongoose").Query<import("mongodb").DeleteResult, import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
             _id: import("mongoose").Types.ObjectId;
-        }, {}, import("../users/schema/users.model").UserDocument, "deleteOne">) & ((options?: import("mongoose").QueryOptions<unknown>) => any);
+        }, {}, import("src/users/schema/users.model").UserDocument, "deleteOne">) & ((options?: import("mongoose").QueryOptions<unknown>) => any);
         equals: ((doc: import("mongoose").Document<unknown, any, any>) => boolean) & ((doc: import("mongoose").Document<any, any, any>) => boolean);
         errors?: import("mongoose").Error.ValidationError;
         get: {
-            <T extends keyof User | keyof import("mongoose").Document<any, any, any>>(path: T, type?: any, options?: any): import("../users/schema/users.model").UserDocument[T];
+            <T extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path: T, type?: any, options?: any): import("src/users/schema/users.model").UserDocument[T];
             (path: string, type?: any, options?: any): any;
         } & {
             <T_1 extends string | number | symbol>(path: T_1, type?: any, options?: any): any;
@@ -288,35 +287,35 @@ export declare class AuthService {
         };
         id?: any;
         invalidate: {
-            <T_2 extends keyof User | keyof import("mongoose").Document<any, any, any>>(path: T_2, errorMsg: string | NativeError, value?: any, kind?: string): NativeError;
+            <T_2 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path: T_2, errorMsg: string | NativeError, value?: any, kind?: string): NativeError;
             (path: string, errorMsg: string | NativeError, value?: any, kind?: string): NativeError;
         } & {
             <T_3 extends string | number | symbol>(path: T_3, errorMsg: string | NativeError, value?: any, kind?: string): NativeError;
             (path: string, errorMsg: string | NativeError, value?: any, kind?: string): NativeError;
         };
         isDirectModified: {
-            <T_4 extends keyof User | keyof import("mongoose").Document<any, any, any>>(path: T_4 | T_4[]): boolean;
+            <T_4 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path: T_4 | T_4[]): boolean;
             (path: string | string[]): boolean;
         } & {
             <T_5 extends string | number | symbol>(path: T_5 | T_5[]): boolean;
             (path: string | string[]): boolean;
         };
         isDirectSelected: {
-            <T_6 extends keyof User | keyof import("mongoose").Document<any, any, any>>(path: T_6): boolean;
+            <T_6 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path: T_6): boolean;
             (path: string): boolean;
         } & {
             <T_7 extends string | number | symbol>(path: T_7): boolean;
             (path: string): boolean;
         };
         isInit: {
-            <T_8 extends keyof User | keyof import("mongoose").Document<any, any, any>>(path: T_8): boolean;
+            <T_8 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path: T_8): boolean;
             (path: string): boolean;
         } & {
             <T_9 extends string | number | symbol>(path: T_9): boolean;
             (path: string): boolean;
         };
         isModified: {
-            <T_10 extends keyof User | keyof import("mongoose").Document<any, any, any>>(path?: T_10 | T_10[], options?: {
+            <T_10 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path?: T_10 | T_10[], options?: {
                 ignoreAtomics?: boolean;
             }): boolean;
             (path?: string | string[], options?: {
@@ -332,14 +331,14 @@ export declare class AuthService {
         };
         isNew: boolean;
         isSelected: {
-            <T_12 extends keyof User | keyof import("mongoose").Document<any, any, any>>(path: T_12): boolean;
+            <T_12 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path: T_12): boolean;
             (path: string): boolean;
         } & {
             <T_13 extends string | number | symbol>(path: T_13): boolean;
             (path: string): boolean;
         };
         markModified: {
-            <T_14 extends keyof User | keyof import("mongoose").Document<any, any, any>>(path: T_14, scope?: any): void;
+            <T_14 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path: T_14, scope?: any): void;
             (path: string, scope?: any): void;
         } & {
             <T_15 extends string | number | symbol>(path: T_15, scope?: any): void;
@@ -349,7 +348,7 @@ export declare class AuthService {
             <ModelType_4 = import("mongoose").Model<unknown, {}, {}, {}, import("mongoose").Document<unknown, {}, unknown> & Required<{
                 _id: unknown;
             }>, any>>(name: string): ModelType_4;
-            <ModelType_5 = import("mongoose").Model<import("../users/schema/users.model").UserDocument, {}, {}, {}, import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            <ModelType_5 = import("mongoose").Model<import("src/users/schema/users.model").UserDocument, {}, {}, {}, import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             }, any>>(): ModelType_5;
         } & {
@@ -368,41 +367,41 @@ export declare class AuthService {
             _id: unknown;
         }>>;
         set: {
-            <T_16 extends keyof User | keyof import("mongoose").Document<any, any, any>>(path: T_16, val: import("../users/schema/users.model").UserDocument[T_16], type: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            <T_16 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path: T_16, val: import("src/users/schema/users.model").UserDocument[T_16], type: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             };
-            (path: string | Record<string, any>, val: any, type: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            (path: string | Record<string, any>, val: any, type: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             };
-            (path: string | Record<string, any>, val: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            (path: string | Record<string, any>, val: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             };
-            (value: string | Record<string, any>): import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            (value: string | Record<string, any>): import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             };
         } & {
-            <T_17 extends string | number | symbol>(path: T_17, val: any, type: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            <T_17 extends string | number | symbol>(path: T_17, val: any, type: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             };
-            (path: string | Record<string, any>, val: any, type: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            (path: string | Record<string, any>, val: any, type: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             };
-            (path: string | Record<string, any>, val: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            (path: string | Record<string, any>, val: any, options?: import("mongoose").DocumentSetOptions): import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             };
-            (value: string | Record<string, any>): import("mongoose").Document<unknown, {}, import("../users/schema/users.model").UserDocument> & User & import("mongoose").Document<any, any, any> & {
+            (value: string | Record<string, any>): import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             };
         };
         toJSON: {
-            <T_18 = User & import("mongoose").Document<any, any, any> & {
+            <T_18 = import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             }>(options?: import("mongoose").ToObjectOptions<import("mongoose").Document<unknown, {}, unknown> & Required<{
                 _id: unknown;
             }>> & {
                 flattenMaps?: true;
             }): import("mongoose").FlattenMaps<T_18>;
-            <T_19 = User & import("mongoose").Document<any, any, any> & {
+            <T_19 = import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
                 _id: import("mongoose").Types.ObjectId;
             }>(options: import("mongoose").ToObjectOptions<import("mongoose").Document<unknown, {}, unknown> & Required<{
                 _id: unknown;
@@ -421,7 +420,7 @@ export declare class AuthService {
                 flattenMaps: false;
             }): T_21;
         };
-        toObject: (<T_22 = User & import("mongoose").Document<any, any, any> & {
+        toObject: (<T_22 = import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
             _id: import("mongoose").Types.ObjectId;
         }>(options?: import("mongoose").ToObjectOptions<import("mongoose").Document<unknown, {}, unknown> & Required<{
             _id: unknown;
@@ -429,14 +428,14 @@ export declare class AuthService {
             _id: unknown;
         }>>) => import("mongoose").Require_id<T_23>);
         unmarkModified: {
-            <T_24 extends keyof User | keyof import("mongoose").Document<any, any, any>>(path: T_24): void;
+            <T_24 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(path: T_24): void;
             (path: string): void;
         } & {
             <T_25 extends string | number | symbol>(path: T_25): void;
             (path: string): void;
         };
         validate: {
-            <T_26 extends keyof User | keyof import("mongoose").Document<any, any, any>>(pathsToValidate?: T_26 | T_26[], options?: import("mongoose").AnyObject): Promise<void>;
+            <T_26 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(pathsToValidate?: T_26 | T_26[], options?: import("mongoose").AnyObject): Promise<void>;
             (pathsToValidate?: import("mongoose").PathsToValidate, options?: import("mongoose").AnyObject): Promise<void>;
             (options: {
                 pathsToSkip?: import("mongoose").pathsToSkip;
@@ -453,7 +452,7 @@ export declare class AuthService {
                 [k: string]: any;
                 pathsToSkip?: import("mongoose").pathsToSkip;
             }): import("mongoose").Error.ValidationError;
-            <T_28 extends keyof User | keyof import("mongoose").Document<any, any, any>>(pathsToValidate?: T_28 | T_28[], options?: import("mongoose").AnyObject): import("mongoose").Error.ValidationError;
+            <T_28 extends keyof import("src/users/schema/users.model").User | keyof import("mongoose").Document<any, any, any>>(pathsToValidate?: T_28 | T_28[], options?: import("mongoose").AnyObject): import("mongoose").Error.ValidationError;
             (pathsToValidate?: import("mongoose").PathsToValidate, options?: import("mongoose").AnyObject): import("mongoose").Error.ValidationError;
         } & {
             (options: {
