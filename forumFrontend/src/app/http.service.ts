@@ -1,15 +1,11 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {JwtService} from "./jwt.service";
-import {catchError, finalize} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
-  private lastRequest: any;
 
-
-  constructor(private http: HttpClient, private jwtService: JwtService) {}
+  constructor(private http: HttpClient) {}
 
   private url = 'http://localhost:3000/';
 
@@ -25,8 +21,48 @@ export class HttpService {
 
 
 
+
   isLoggedIn() {
     return this.http.get(`${this.url}auth/isLoggedIn`);
+  }
+
+  createPost(title: string, content: string, author: string) {
+    const post = { title, content, author };
+    return this.http.post(`${this.url}post/create`, post);
+  }
+
+  getPosts() {
+    return this.http.get(`${this.url}post`);
+  }
+
+  deletePost(id: string) {
+    return this.http.post(`${this.url}post/delete/${id}`, {});
+  }
+
+  updatePost(id: string, title: string, content: string) {
+    const post = { title, content };
+    return this.http.post(`${this.url}post/update/${id}`, post);
+  }
+
+  getPost(id: string) {
+    return this.http.get(`${this.url}post/${id}`);
+  }
+
+  createComment(postId: string, content: string, author: string) {
+    const comment = { content, author };
+    return this.http.post(`${this.url}posts/${postId}/comments/create`, comment);
+  }
+
+  deleteComment(postId: string, commentId: string) {
+    return this.http.delete(`${this.url}posts/${postId}/comments/${commentId}`);
+  }
+
+  getComments(postId: string) {
+    return this.http.get(`${this.url}posts/${postId}/comments`);
+  }
+
+  getPostsByUser(userId: string) {
+    return this.http.get(`${this.url}post/user/${userId}`);
   }
 
 }

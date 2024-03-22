@@ -3,6 +3,7 @@ import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { User } from '../users/schema/users.model';
+import {CreateUserDto} from "./dto/auth.dto";
 
 @Injectable()
 export class AuthService {
@@ -11,10 +12,20 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  async register(user: User) {
-    const newUser: any = await this.usersService.createUser(user);
+  async register(createUserDto: CreateUserDto) {
+    // Create a new user
+    const newUser = await this.usersService.createUser({
+      ...createUserDto,
+      role: 'user',
+    });
+
+    // Create a JWT payload
     const payload = { username: newUser.username, sub: newUser._id };
+
+    // Sign the JWT using the JWT service
     const access_token = this.jwtService.sign(payload);
+
+    // Return the user and the JWT
     return { ...newUser, access_token };
   }
 
@@ -40,8 +51,7 @@ export class AuthService {
       }
 
       // If the credentials are valid, create a JWT payload
-      const payload = { username: user.username, sub: dbUser._id };
-      console.log('payload', payload);
+      const payload = { username: dbUser.username, sub: dbUser._id };
       const access_token = this.jwtService.sign(payload);
 
       // Return the JWT to the user

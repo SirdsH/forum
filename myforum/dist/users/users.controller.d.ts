@@ -33,4 +33,10 @@ export declare class UsersController {
     getAllUsers(): Promise<(import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
         _id: import("mongoose").Types.ObjectId;
     })[]>;
+    getUserById(body: any): Promise<import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
+        _id: import("mongoose").Types.ObjectId;
+    }>;
+    updateUser(body: any): Promise<import("mongoose").Document<unknown, {}, import("src/users/schema/users.model").UserDocument> & import("src/users/schema/users.model").User & import("mongoose").Document<any, any, any> & {
+        _id: import("mongoose").Types.ObjectId;
+    }>;
 }

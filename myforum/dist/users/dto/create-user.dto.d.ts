@@ -1,3 +1,6 @@
-import { User } from '../entities/user.entity';
-export declare class CreateUserDto extends User {
+export declare class CreateUserDto {
+    email: string;
+    username: string;
+    password: string;
+    role: string;
 }

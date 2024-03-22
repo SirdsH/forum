@@ -1,9 +1,31 @@
-<mat-toolbar class="nav" color="primary">
+<mat-toolbar class="nav mb-2" color="primary">
   <span class="navbar-brand">HTForum</span>
   <span class="spacer"></span>
   <div class="nav-right">
+    <button mat-button class="btn-log" (click)="profile()">
+      Profil
+    </button>
     <button mat-button class="btn-log" (click)="logout()">
-      Logout
+      Odhlásit se
     </button>
   </div>
 </mat-toolbar>
+
+<div class="container">
+  <div class="search-container">
+    <input class="searcher" type="text" [(ngModel)]="search" (ngModelChange)="filterPosts()" placeholder="Search for posts...">
+  </div>
+
+  <button class="btncreate" mat-raised-button (click)="createPost()">
+    Nový příspěvek
+  </button>
+
+  <div class="posts">
+    <div class="post" *ngFor="let post of filterPosts()">
+      <div class="card">
+        <h1 (click)="moveToPost(post._id)" style="cursor: pointer;">{{ post.title }}</h1>
+        <small>By  {{ post.author?.username }}, {{ post.createdAt | date: 'medium' }}</small>
+      </div>
+    </div>
+  </div>
+</div>

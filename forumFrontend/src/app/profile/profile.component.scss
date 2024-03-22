@@ -1,0 +1,45 @@
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #25370b;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.example-card {
+  max-width: 850px;
+  margin: 20px auto;
+}
+
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #f1f1f1;
+  padding: 1rem;
+  border-bottom: none;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+.black-link {
+  color: black;
+  text-decoration: none;
+}
+
+.delete-button {
+}
+
+

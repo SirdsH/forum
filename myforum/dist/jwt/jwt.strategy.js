@@ -18,14 +18,12 @@ let JwtStrategy = class JwtStrategy extends (0, passport_1.PassportStrategy)(pas
     constructor() {
         super({
             jwtFromRequest: passport_jwt_1.ExtractJwt.fromAuthHeaderAsBearerToken(),
-            ignoreExpiration: false,
             secretOrKey: constants_1.jwtConstants.secret,
         });
     }
     async validate(payload) {
-        console.log('Inside JWT Strategy Validate');
-        console.log(payload);
-        return payload;
+        const user = { username: payload.username, sub: payload.sub };
+        return user;
     }
 };
 exports.JwtStrategy = JwtStrategy;

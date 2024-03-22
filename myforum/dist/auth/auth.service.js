@@ -19,8 +19,11 @@ let AuthService = class AuthService {
         this.usersService = usersService;
         this.jwtService = jwtService;
     }
-    async register(user) {
-        const newUser = await this.usersService.createUser(user);
+    async register(createUserDto) {
+        const newUser = await this.usersService.createUser({
+            ...createUserDto,
+            role: 'user',
+        });
         const payload = { username: newUser.username, sub: newUser._id };
         const access_token = this.jwtService.sign(payload);
         return { ...newUser, access_token };
@@ -42,8 +45,7 @@ let AuthService = class AuthService {
             if (!dbUser) {
                 throw new Error('Invalid credentials');
             }
-            const payload = { username: user.username, sub: dbUser._id };
-            console.log('payload', payload);
+            const payload = { username: dbUser.username, sub: dbUser._id };
             const access_token = this.jwtService.sign(payload);
             return { ...dbUser, access_token };
         }

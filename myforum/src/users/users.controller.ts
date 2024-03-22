@@ -14,4 +14,14 @@ export class UsersController {
   async getAllUsers() {
     return this.usersService.getAllUsers();
   }
+
+  @Get('getUserById')
+  async getUserById(@Body() body: any) {
+    return this.usersService.getUserById(body.id);
+  }
+
+  @Get('updateUser')
+  async updateUser(@Body() body: any) {
+    return this.usersService.updateUser(body.id, body.updateUserDto);
+  }
 }

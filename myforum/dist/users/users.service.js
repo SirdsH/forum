@@ -32,8 +32,16 @@ let UsersService = class UsersService {
     async getUser(body) {
         return this.userModel.findOne({ username: body.username }).exec();
     }
+    async updateUser(id, updateUserDto) {
+        return this.userModel
+            .findByIdAndUpdate(id, updateUserDto, { new: true })
+            .exec();
+    }
     async getAllUsers() {
         return this.userModel.find().exec();
+    }
+    async getUserById(id) {
+        return this.userModel.findById(id).exec();
     }
 };
 exports.UsersService = UsersService;

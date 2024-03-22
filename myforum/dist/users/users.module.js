@@ -12,6 +12,7 @@ const users_service_1 = require("./users.service");
 const users_controller_1 = require("./users.controller");
 const users_model_1 = require("./schema/users.model");
 const mongoose_1 = require("@nestjs/mongoose");
+const post_module_1 = require("../post/post.module");
 let UsersModule = class UsersModule {
 };
 exports.UsersModule = UsersModule;
@@ -24,6 +25,7 @@ exports.UsersModule = UsersModule = __decorate([
                     schema: users_model_1.UserSchema,
                 },
             ]),
+            (0, common_1.forwardRef)(() => post_module_1.PostModule),
         ],
         controllers: [users_controller_1.UsersController],
         providers: [users_service_1.UsersService],

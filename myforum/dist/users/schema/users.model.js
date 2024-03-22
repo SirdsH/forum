@@ -12,6 +12,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserSchema = exports.User = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 let User = class User {
+    constructor() {
+        this.role = 'user';
+    }
 };
 exports.User = User;
 __decorate([
@@ -26,6 +29,10 @@ __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], User.prototype, "password", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], User.prototype, "role", void 0);
 exports.User = User = __decorate([
     (0, mongoose_1.Schema)()
 ], User);

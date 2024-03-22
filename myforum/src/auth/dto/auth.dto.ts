@@ -11,6 +11,9 @@ export class CreateUserDto {
   @IsString()
   @MinLength(8)
   password: string;
+
+  @IsString()
+  role: string = 'user';
 }
 
 export class LoginUserDto {

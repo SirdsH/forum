@@ -32,6 +32,11 @@ import {
   MatExpansionPanelTitle
 } from "@angular/material/expansion";
 import 'bootstrap';
+import { ProfileComponent } from './profile/profile.component';
+import { CreatePostComponent } from './create-post/create-post.component';
+import {MatPaginator} from "@angular/material/paginator";
+import {MatTableModule} from "@angular/material/table";
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,8 +44,12 @@ import 'bootstrap';
     RegisterComponent,
     PostComponent,
     HomeComponent,
+    ProfileComponent,
+    CreatePostComponent,
+    FooterComponent,
   ],
   imports: [
+    MatTableModule,
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
@@ -64,7 +73,8 @@ import 'bootstrap';
     MatExpansionPanel,
     MatExpansionPanelHeader,
     MatExpansionPanelTitle,
-    MatExpansionPanelDescription
+    MatExpansionPanelDescription,
+    MatPaginator
   ],
   providers: [
     provideAnimationsAsync()

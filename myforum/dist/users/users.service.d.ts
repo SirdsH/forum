@@ -24,6 +24,7 @@
 /// <reference types="mongoose/types/inferschematype" />
 import { User, UserDocument } from './schema/users.model';
 import { Model } from 'mongoose';
+import { UpdateUserDto } from './dto/update-user.dto';
 export declare class UsersService {
     private userModel;
     constructor(userModel: Model<UserDocument>);
@@ -33,7 +34,13 @@ export declare class UsersService {
     getUser(body: any): Promise<import("mongoose").Document<unknown, {}, UserDocument> & User & import("mongoose").Document<any, any, any> & {
         _id: import("mongoose").Types.ObjectId;
     }>;
+    updateUser(id: string, updateUserDto: UpdateUserDto): Promise<import("mongoose").Document<unknown, {}, UserDocument> & User & import("mongoose").Document<any, any, any> & {
+        _id: import("mongoose").Types.ObjectId;
+    }>;
     getAllUsers(): Promise<(import("mongoose").Document<unknown, {}, UserDocument> & User & import("mongoose").Document<any, any, any> & {
         _id: import("mongoose").Types.ObjectId;
     })[]>;
+    getUserById(id: string): Promise<import("mongoose").Document<unknown, {}, UserDocument> & User & import("mongoose").Document<any, any, any> & {
+        _id: import("mongoose").Types.ObjectId;
+    }>;
 }

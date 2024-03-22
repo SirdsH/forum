@@ -1,7 +1,8 @@
+
 .nav {
   display: flex;
   justify-content: space-between;
-  background-color: darkgreen;
+  background-color: #25370b;
 }
 
 .nav-right {
@@ -9,8 +10,41 @@
   align-items: center;
 }
 
-.example-card {
-  max-width: 850px;
-  margin: 20px auto; 
+
+.container {
+  position: relative;
+  background-color: #e3e1da;
 }
 
+.search-container {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  width: 200px;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.card {
+  width: 100%;
+  border-radius: 0;
+}
+
+.btncreate {
+  background-color: #608054 !important;
+  color: white !important;
+  margin-bottom: 5px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+.searcher {
+  border-radius: 13px;
+  border-color: #e3e1da;
+}
