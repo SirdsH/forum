@@ -7,7 +7,7 @@ export class HttpService {
 
   constructor(private http: HttpClient) {}
 
-  private url = 'http://localhost:3000/';
+  private url = './api/';
 
   login(username: string, password: string) {
     const credentials = { username, password};

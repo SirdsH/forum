@@ -26,6 +26,7 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/mongoose": "^10.0.4",
     "@nestjs/platform-express": "^10.0.0",
+    "@nestjs/serve-static": "^4.0.2",
     "@types/passport-jwt": "^4.0.1",
     "bcrypt": "^5.1.1",
     "class-transformer": "^0.5.1",
@@ -39,6 +40,7 @@
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",
+    "@nestjs/ng-universal": "^8.0.0",
     "@nestjs/passport": "^10.0.3",
     "@nestjs/schematics": "^10.0.0",
     "@nestjs/testing": "^10.0.0",

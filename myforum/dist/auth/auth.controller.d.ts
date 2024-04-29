@@ -46,7 +46,7 @@ export declare class AuthController {
             }>, any>>(name: string): ModelType_2;
             <ModelType_3 = import("mongoose").Model<any, {}, {}, {}, any, any>>(): ModelType_3;
         };
-        $op: "save" | "validate" | "remove";
+        $op: "remove" | "save" | "validate";
         $where: Record<string, unknown>;
         baseModelName?: string;
         collection: import("mongoose").Collection<import("bson").Document>;
@@ -263,7 +263,7 @@ export declare class AuthController {
             }>, any>>(name: string): ModelType_2;
             <ModelType_3 = import("mongoose").Model<any, {}, {}, {}, any, any>>(): ModelType_3;
         };
-        $op: "save" | "validate" | "remove";
+        $op: "remove" | "save" | "validate";
         $where: Record<string, unknown>;
         baseModelName?: string;
         collection: import("mongoose").Collection<import("bson").Document>;

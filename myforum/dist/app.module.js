@@ -15,6 +15,8 @@ const mongoose_1 = require("@nestjs/mongoose");
 const auth_module_1 = require("./auth/auth.module");
 const post_module_1 = require("./post/post.module");
 const comments_module_1 = require("./comments/comments.module");
+const serve_static_1 = require("@nestjs/serve-static");
+const path_1 = require("path");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -26,6 +28,9 @@ exports.AppModule = AppModule = __decorate([
             auth_module_1.AuthModule,
             post_module_1.PostModule,
             comments_module_1.CommentsModule,
+            serve_static_1.ServeStaticModule.forRoot({
+                rootPath: (0, path_1.join)(__dirname, '../../forumFrontend/dist/forum-frontend/browser'),
+            }),
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

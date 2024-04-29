@@ -1,11 +1,19 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
 import { ValidationExceptionFilter } from './filters/ValidationExceptionFilter';
+import * as path from 'path';
+import { NestExpressApplication } from '@nestjs/platform-express';
+import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+    cors: true,
+  });
   app.enableCors();
   app.useGlobalFilters(new ValidationExceptionFilter());
+  app.setGlobalPrefix('api');
+  /*app.useStaticAssets(
+    path.resolve('../forumFrontend/dist/forum-frontend/browser'),
+  );*/
   await app.listen(3000);
 }
 bootstrap();

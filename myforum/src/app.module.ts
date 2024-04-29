@@ -6,6 +6,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth/auth.module';
 import { PostModule } from './post/post.module';
 import { CommentsModule } from './comments/comments.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
+
 @Module({
   imports: [
     MongooseModule.forRoot(
@@ -15,6 +18,12 @@ import { CommentsModule } from './comments/comments.module';
     AuthModule,
     PostModule,
     CommentsModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(
+        __dirname,
+        '../../forumFrontend/dist/forum-frontend/browser',
+      ),
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],

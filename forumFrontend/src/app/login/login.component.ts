@@ -21,7 +21,7 @@ export class LoginComponent {
       return;
     }
 
-    this.http.post('http://localhost:3000/auth/login', {username: this.username, password: this.password}).subscribe(
+    this.http.post('./api/auth/login', {username: this.username, password: this.password}).subscribe(
       (response) => {
         sessionStorage.setItem('access_token', JSON.stringify(response));
         this.router.navigate(['/home']);

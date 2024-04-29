@@ -19,6 +19,7 @@ export class PostComponent implements OnInit{
 
 
   ngOnInit() {
+    this.comments = [];
     const accessToken = sessionStorage.getItem('access_token');
     if (accessToken) {
       const accessTokenObject = JSON.parse(accessToken);
@@ -65,8 +66,8 @@ export class PostComponent implements OnInit{
 
   // This is the function that deletes a comment on a post without navigating to a new page.
   deleteComment(commentId: string) {
+    console.log(commentId)
     this.httpService.deleteComment(this.postId, commentId).subscribe(() => {
-      console.log(commentId)
       this.ngOnInit();
     });
   }
