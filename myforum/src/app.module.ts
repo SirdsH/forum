@@ -19,10 +19,7 @@ import { join } from 'path';
     PostModule,
     CommentsModule,
     ServeStaticModule.forRoot({
-      rootPath: join(
-        __dirname,
-        '../../forumFrontend/dist/forum-frontend/browser',
-      ),
+      rootPath: join(__dirname, '../frontenddist/dist/forum-frontend/browser'),
     }),
   ],
   controllers: [AppController],

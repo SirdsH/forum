@@ -29,7 +29,7 @@ exports.AppModule = AppModule = __decorate([
             post_module_1.PostModule,
             comments_module_1.CommentsModule,
             serve_static_1.ServeStaticModule.forRoot({
-                rootPath: (0, path_1.join)(__dirname, '../../forumFrontend/dist/forum-frontend/browser'),
+                rootPath: (0, path_1.join)(__dirname, '../frontenddist/dist/forum-frontend/browser'),
             }),
         ],
         controllers: [app_controller_1.AppController],
