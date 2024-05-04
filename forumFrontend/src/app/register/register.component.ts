@@ -12,6 +12,7 @@ import {AnalyticsService} from "../analytics.service";
 export class RegisterComponent {
   registerForm: FormGroup;
   hide = true;
+  s = 's';
 
   constructor(private httpService: HttpService, private router: Router, private formBuilder: FormBuilder, private analyticsService: AnalyticsService) {
     this.registerForm = this.formBuilder.group({
