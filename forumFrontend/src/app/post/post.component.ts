@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../http.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {AnalyticsService} from "../analytics.service";
 
 @Component({
   selector: 'app-post',
@@ -14,7 +15,7 @@ export class PostComponent implements OnInit{
   comments: any;
   content: string = '';
 
-  constructor(private router: Router, private httpService: HttpService, private route: ActivatedRoute) {
+  constructor(private router: Router, private httpService: HttpService, private route: ActivatedRoute, private analyticsService: AnalyticsService) {
   }
 
 
@@ -36,6 +37,7 @@ export class PostComponent implements OnInit{
     this.httpService.getComments(this.postId).subscribe((response: any) => {
       this.comments = response;
     });
+    this.analyticsService.trackEvent('page_view', 'Post page viewed', 'POST_PAGE');
   }
 
   logout() {

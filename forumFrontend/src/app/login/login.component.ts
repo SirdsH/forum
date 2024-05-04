@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from "@angular/material/snack-bar";
+import {AnalyticsService} from "../analytics.service";
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,11 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar) {
+  constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar, private analyticsService: AnalyticsService) {
+  }
+
+  ngOnInit() {
+    this.analyticsService.trackEvent('page_view', 'Login page viewed', 'LOGIN_PAGE');
   }
 
   onSubmit() {

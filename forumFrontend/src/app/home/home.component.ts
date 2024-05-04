@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
+import {AnalyticsService} from "../analytics.service";
 
 
 interface Post {
@@ -23,12 +24,13 @@ export class HomeComponent implements OnInit {
   search: string = '';
 
 
-  constructor(private router: Router, private httpService: HttpService) { }
+  constructor(private router: Router, private httpService: HttpService, private analyticsService: AnalyticsService) { }
 
   ngOnInit() {
     this.httpService.getPosts().subscribe((data: any) => {
       this.posts = data;
     });
+    this.analyticsService.trackEvent('page_view', 'Home page viewed', 'HOME_PAGE');
   }
 
   logout() {

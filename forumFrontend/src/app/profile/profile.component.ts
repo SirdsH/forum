@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../http.service";
 import {Router} from "@angular/router";
+import {AnalyticsService} from "../analytics.service";
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +12,7 @@ export class ProfileComponent implements OnInit {
   doc: any;
   posts: any;
 
-  constructor(private httpService: HttpService, private router: Router) {
+  constructor(private httpService: HttpService, private router: Router, private analyticsService: AnalyticsService) {
   }
 
   ngOnInit() {
@@ -21,6 +22,7 @@ export class ProfileComponent implements OnInit {
       this.doc = accessTokenObject._doc;
       this.getPosts();
     }
+    this.analyticsService.trackEvent('page_view', 'Profile page viewed', 'PROFILE_PAGE');
   }
 
   getPosts() {
