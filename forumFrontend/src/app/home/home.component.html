@@ -35,7 +35,7 @@
     Nový příspěvek
   </button>
 
-  <div class="posts">
+  <div *ngIf="posts" class="posts">
     <div class="post" *ngFor="let post of filterPosts()">
       <div class="card">
         <h1 (click)="moveToPost(post._id)" style="cursor: pointer;">{{ post.title }}</h1>
